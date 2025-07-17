@@ -1,0 +1,9 @@
+MMH 20GB Unfold Test
+---------------------
+- Size:           20 GB
+- Time:           20.7 seconds
+- SHA256:         89176e1bee3fa69cf3e67cab65e4f8c3120ff6b48f3d1c830032b815addbdf1f
+- First 16 bytes: b'B\x18\x86Yi\xb7f\xfb\xb8\xa5\xcb&\x03@\xf98'
+- Last 16 bytes:  b':\xd5+\xc2\x02\x05\x98\xf1\xbep\x80\xea,i\xda\xb3'
+- System:         Windows 11, 64GB RAM, RTX 4070 8GB, WSL2
+- MMH Version:    [Insert current git hash/tag] 

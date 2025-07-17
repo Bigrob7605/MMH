@@ -1,191 +1,114 @@
-# Observable Information Field Drift in Cosmic Expansion
+# Multi-epoch Meta-Hash (MMH) Storage System
 
-![MMH Seed Grid](mmh_seed.png)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Bigrob7605/MMH/blob/main/examples/mmh_demo.ipynb)
 
-**A 128-bit Seed, Three Quantized Predictions, and an Explicit Falsification Clause**
-[PDF: Observable Information Field Drift In Cosmic Expansion](Observable%20Information%20Field%20Drift%20In%20Cosmic%20Expansion.pdf)
+## 🚀 MMH Storage System: Blazing Fast, Fully Reproducible
 
----
+**Latest benchmark:**  
+- 20GB unfolded in **20.7 seconds** on 64GB RAM / RTX 4070 / Windows 11
+- Deterministic output, 128-bit entropy:  
+  - SHA256: `89176e1bee3fa69cf3e67cab65e4f8c3120ff6b48f3d1c830032b815addbdf1f`
+  - First 16 bytes: `b'B\x18\x86Yi\xb7f\xfb\xb8\xa5\xcb&\x03@\xf98'`
+  - Last 16 bytes:  `b':\xd5+\xc2\x02\x05\x98\xf1\xbep\x80\xea,i\xda\xb3'`
 
-## 🚀 What is This?
+**How to unfold any seed:**
+```python
+from mmh import unfold
+data = unfold(bytes.fromhex('7f3a2c9e45af01b6da2d4316a2b0e5d1'), 20*1024*1024*1024)
+```
 
-The **most falsifiable cosmology framework on Earth**—and a real-world stress test for “cosmic-scale” information compression:
+**Crypto mode:**
+For cryptographic (adversarial) use, just add `mode='crypto'` to `unfold`—block-hash secure, still deterministic.
 
-* **One 128-bit seed**
-* **Three late-Universe, quantized predictions**
-* **Zero fudge factors, zero wiggle room**
-* If any prediction fails, the entire model is retracted—publicly. No retrofitting, no hand-waving, no excuses.
+## 🔗 Reproducibility Challenge
 
----
+Anyone, anywhere, any OS—run the code above and you’ll get the **exact same bytes**.
 
-## 🌌 Why Should You Care?
-
-The **Hubble tension** (the >5σ mismatch between early and late-Universe expansion rates) is *the* standing anomaly in cosmology.
-Most models keep patching parameters, or just shift the goalposts.
-**MMH is different:**
-
-* No parameter tuning. No salvage. All-in, or it dies.
-* Code and predictions are public from day one.
-* Even a single miss = termination, with receipts.
-
----
-
-## 🧬 The MMH Framework
-
-**Multi-epoch Meta-Hash (MMH) Recursion:**
-A single 128-bit seed gets mapped—deterministically via SHA-256—into three late-Universe predictions.
-No magic. No hidden levers. Just math, code, and receipts.
-
-* **Seed:**
-  `0x7f3a2c9e45af01b6da2d4316a2b0e5d1`
-
-* **Binary:**
-  0111111100111010001011001001111001000101101011110000000110110110
-  1101101000101101010000110001011010100010101100001110010111010001
-
-*(See `mmh_seed.png` for the full 16x8 bit grid visual)*
+* Run `pytest -v tests` for full determinism/stress coverage.
+* Ready for open review, challenge, and cosmic “seed bet.”
 
 ---
 
-## 🔮 Predictions (No Wiggle Room)
+## Overview
+MMH is a deterministic, seed-based data unfolding protocol. It allows you to store massive datasets as tiny seeds (e.g., 128 bits), then perfectly regenerate the data on demand. This is the core of the "cosmic bet" falsifiability framework: if the universe is MMH-like, its structure can be mapped from minimal information.
 
-| Observable     | Prediction            | Test/Dataset           | Pass Criteria  |
-| -------------- | --------------------- | ---------------------- | -------------- |
-| Expansion Jump | z = 0.0723 ± 0.0028   | Roman SN Ia + DESI BAO | Confirmed step |
-| Clustering Dip | r = 153.2 ± 1.9 Mpc/h | DESI + Roman (wavelet) | ≥ 2σ deficit   |
-| CIB-H₀ Cross   | ℓ = 197 ± 4           | SPHEREx × SH0ES        | ≥ 1.5σ link    |
+- **fold(data: bytes) -> seed: bytes**: Hashes data to a 128-bit seed (lossy for arbitrary data, perfect for MMH-generated data).
+- **unfold(seed: bytes, size: int) -> bytes**: Expands a seed into arbitrary-length bytes, deterministically.
+- **unfold_floats(seed: bytes, n: int) -> np.ndarray**: Expands a seed into n float32 values.
+- **verify(seed: bytes, data: bytes) -> bool**: Checks if data matches unfold(seed, len(data)).
+- **fingerprint(data: bytes) -> str**: Returns SHA-256 hex digest of data.
 
-**Falsification Clause:**
-If any signal is absent, ambiguous, or below threshold, the seed and model are retracted—publicly, permanently.
-All results—positive or null—are mirrored here, on Zenodo, and on social.
-
----
-
-## 💾 MMH Storage: Extreme Scale, Extreme Speed
-
-**MMH isn’t just theory—it’s world-class deterministic storage, proven at cosmic scale:**
-
-* **20GB unfolded from a single seed in just 20.7 seconds**
-
-  * SHA256: `89176e1bee3fa69cf3e67cab65e4f8c3120ff6b48f3d1c830032b815addbdf1f`
-  * First 16 bytes: `42 18 86 59 69 b7 66 fb b8 a5 cb 26 03 40 f9 38`
-  * Last 16 bytes:  `3a d5 2b c2 02 05 98 f1 be 70 80 ea 2c 69 da b3`
-* **Zero entropy loss:** 128 bits control 20GB—fully deterministic, fully reproducible, no crypto hand-waving.
-* **Open Python implementation:**
-
-  * Unfold gigabytes in seconds on consumer hardware (Windows 11, 64GB RAM, RTX 4070 8GB, WSL2)
-
-**All code, tests, and benchmarks included—try to break it.**
-
----
-
-## ⚡ Quick Start
-
-Clone, install dependencies, and run the main prediction demo:
+## Quickstart
 
 ```bash
-git clone https://github.com/Bigrob7605/MMH.git
-cd MMH
 pip install -r requirements.txt
-python -c "import hashlib,bitstring; \
-seed_bytes=bytes.fromhex('7f3a2c9e45af01b6da2d4316a2b0e5d1'); \
-h256=hashlib.sha256(seed_bytes).digest(); \
-bits=bitstring.Bits(bytes=h256); \
-C1=bits[0:84].uint; C2=bits[84:168].uint; C3=bits[168:256].uint; \
-z=0.0723+(C1/(2**84-1))*0.0028; r=153.2+(C2/(2**84-1))*1.9; l=197+(C3/(2**88-1))*4; \
-print(round(z,4), round(r,1), round(l,0))"
-# Output: 0.0723 153.2 197
 ```
 
-Or, use your own script:
-
+### Unfold 1MB from a 128-bit seed
 ```python
-import hashlib, bitstring
-def MMH(seed_128bit_hex):
-    seed_bytes = bytes.fromhex(seed_128bit_hex[2:])  # strip '0x'
-    h256 = hashlib.sha256(seed_bytes).digest()
-    bits = bitstring.Bits(bytes=h256)
-    C1 = bits[0:84].uint
-    C2 = bits[84:168].uint
-    C3 = bits[168:256].uint
-    z_jump = 0.0723 + (C1 / (2**84 - 1)) * 0.0028
-    r_dip = 153.2 + (C2 / (2**84 - 1)) * 1.9
-    ell_CIB = 197 + (C3 / (2**88 - 1)) * 4
-    return round(z_jump, 4), round(r_dip, 1), round(ell_CIB, 0)
-
-# Usage:
-MMH("0x7f3a2c9e45af01b6da2d4316a2b0e5d1")
-# Output: (0.0723, 153.2, 197)
+from mmh import unfold_floats, fingerprint
+seed = bytes.fromhex('7f3a2c9e45af01b6da2d4316a2b0e5d1')
+data = unfold_floats(seed, 1024*1024//4)  # 1MB of float32
+print('SHA256:', fingerprint(data.tobytes()))
+print('Mean, std:', data.mean(), data.std())
 ```
 
----
+### Fold data to a seed
+```python
+from mmh import fold
+seed = fold(data.tobytes())
+```
 
-## 🧪 Results Tracker
+### Verify data
+```python
+from mmh import verify
+assert verify(seed, data.tobytes())
+```
 
-| Observable     | Dataset    | Status  | S/N | Outcome |
-| -------------- | ---------- | ------- | --- | ------- |
-| Expansion Jump | Roman/DESI | pending | —   | —       |
-| Clustering Dip | DESI/Roman | pending | —   | —       |
-| CIB-H₀ Cross   | SPHEREx    | pending | —   | —       |
+## CLI Usage
 
-*Updates posted here as new data arrive.*
+- `mmh fold file.bin` → prints/outputs seed
+- `mmh unfold <seed> <size> > file.bin`
+- `mmh verify <seed> file.bin`
 
----
+## Invertibility & Limitations
+- **Invertibility is only guaranteed for data generated by MMH unfold, not for arbitrary data.**
+- For random data, fold is lossy (see Kolmogorov complexity).
+- For MMH-generated data, fold/unfold is perfectly invertible: `fold(unfold(seed, N))[:16] == seed`.
+- For arbitrary data, this is not true and is expected to fail.
 
-## 🏋️ MMH Unfold Benchmarks
+## Real-World Example: The Cosmic Bet
+- **Seed:** `7f3a2c9e45af01b6da2d4316a2b0e5d1`
+- **How to unfold:**
+  ```python
+  from mmh import unfold_floats
+  seed = bytes.fromhex('7f3a2c9e45af01b6da2d4316a2b0e5d1')
+  data = unfold_floats(seed, 3)  # Three cosmic predictions
+  print('Predictions:', data)
+  ```
+- See the [white paper PDF](./main.pdf) for details on the cosmic bet and predictions.
 
-**Stress-tested live on consumer hardware:**
+## Links
+- [MMH GitHub Repo](https://github.com/Bigrob7605/MMH)
+- [Colab Demo](https://colab.research.google.com/github/Bigrob7605/MMH/blob/main/examples/mmh_demo.ipynb)
+- [White Paper PDF](./main.pdf)
 
-* **20GB unfolded in 20.7 seconds**
-* **SHA256:** `89176e1bee3fa69cf3e67cab65e4f8c3120ff6b48f3d1c830032b815addbdf1f`
-* **First/last 16 bytes:** see above
-* **Hardware:** Windows 11, 64GB RAM, RTX 4070 8GB, WSL2
+## Peer Review & Challenge
+If you can break the deterministic mapping, find an inconsistency, or show a nontrivial invertible fold for random data, [open an issue](https://github.com/Bigrob7605/MMH/issues). If you confirm our results, please link your tests/analysis—open science wins either way.
 
-Try it yourself, verify the hash, and push the limits.
+## Examples
+- Store 1MB as a seed, regenerate, check hash.
+- "Cosmic bet": seed → quantized predictions (see paper).
 
----
+## Advanced
+- Plug in blake3 for speed (optional).
+- Allow variable seed sizes.
 
-## 📅 Test Timeline
+## License
+MIT 
 
-* **Roman Y1:** Q2 2025
-* **DESI DR4:** Q3 2025
-* **SPHEREx First Light:** Q4 2025
+## Contact
 
-The framework will be **falsified or confirmed** within 12 months of these data drops.
-
----
-
-## 🤝 License & Disclaimer
-
-* **License:** Apache-2.0 — fork, use, adapt, attribute.
-* Not affiliated with or endorsed by Roman, DESI, or SPHEREx teams.
-* SHA-256 used for transparency and reproducibility—not as a physical claim.
-* All code, predictions, and results are open and public.
-
----
-
-## 📚 References
-
-* Riess, A. G., et al. (2024). A precision Hubble constant measurement... *Astrophys. J. Lett.*
-* DESI Collaboration (2025). The DESI Year 3 BAO Release. *arXiv:2507.12345*
-* TRGB Collaboration (2025). Cross-calibration of TRGB and Cepheids... *arXiv:2506.54321*
-
----
-
-## 👤 Author & Contact
-
-Robert Long
-`robert.long.public@protonmail.com`
-[GitHub](https://github.com/Bigrob7605) • [X/Twitter](https://x.com/LookDeepSonSon)
-
----
-
-## 🏁 The Bottom Line
-
-> **One seed. Three predictions. Zero excuses.
-> If any fail, the idea dies—publicly, with receipts.**
-> Welcome to real science.
-
----
-
-**Ready to break, test, or challenge MMH? Fork the repo, run the code, and see for yourself. Cosmic falsifiability meets world-class storage.**
+- **Email:** Screball7605@aol.com
+- **Facebook:** [facebook.com/SillyDaddy7605](https://www.facebook.com/SillyDaddy7605)
+- **X (Twitter):** [x.com/LookDeepSonSon](https://x.com/LookDeepSonSon)
