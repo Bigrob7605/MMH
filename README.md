@@ -1,4 +1,3 @@
-```markdown
 # Observable Information Field Drift in Cosmic Expansion
 
 ![MMH Seed Grid](mmh_seed.png)
@@ -39,12 +38,12 @@ No magic, no hidden levers, just math and receipts.
   `0x7f3a2c9e45af01b6da2d4316a2b0e5d1`
 
 - **Binary:**  
-```
-
 0111111100111010001011001001111001000101101011110000000110110110
 1101101000101101010000110001011010100010101100001110010111010001
 
-````
+yaml
+Copy
+Edit
 *(See `mmh_seed.png` for a full 16x8 bit visual)*
 
 ---
@@ -79,15 +78,12 @@ C1=bits[0:84].uint; C2=bits[84:168].uint; C3=bits[168:256].uint; \
 z=0.0723+(C1/(2**84-1))*0.0028; r=153.2+(C2/(2**84-1))*1.9; l=197+(C3/(2**88-1))*4; \
 print(round(z,4), round(r,1), round(l,0))"
 # Output: 0.0723 153.2 197
-````
-
 Or, run your own script based on the example in the paper.
 
----
-
-## 🛠️ Code Example (Python)
-
-```python
+🛠️ Code Example (Python)
+python
+Copy
+Edit
 import hashlib
 import bitstring
 
@@ -106,60 +102,46 @@ def MMH(seed_128bit_hex):
 # Usage:
 MMH("0x7f3a2c9e45af01b6da2d4316a2b0e5d1")
 # Output: (0.0723, 153.2, 197)
-```
+🧪 Results Tracker
+Observable	Dataset	Status	S/N	Outcome
+Expansion Jump	Roman/DESI	pending	—	—
+Clustering Dip	DESI/Roman	pending	—	—
+CIB-H₀ Cross	SPHEREx	pending	—	—
 
----
+Updates to follow as new data are released.
 
-## 🧪 Results Tracker
+📅 Test Timeline
+Roman Y1: Q2 2025
 
-| Observable     | Dataset    | Status  | S/N | Outcome |
-| -------------- | ---------- | ------- | --- | ------- |
-| Expansion Jump | Roman/DESI | pending | —   | —       |
-| Clustering Dip | DESI/Roman | pending | —   | —       |
-| CIB-H₀ Cross   | SPHEREx    | pending | —   | —       |
+DESI DR4: Q3 2025
 
-*Updates to follow as new data are released.*
-
----
-
-## 📅 Test Timeline
-
-* **Roman Y1:** Q2 2025
-* **DESI DR4:** Q3 2025
-* **SPHEREx First Light:** Q4 2025
+SPHEREx First Light: Q4 2025
 
 Framework will be falsified or confirmed within 12 months of these data drops.
 
----
+🤝 License & Disclaimer
+License: Apache-2.0 — fork, use, adapt with attribution.
 
-## 🤝 License & Disclaimer
+Not affiliated with or endorsed by Roman, DESI, or SPHEREx teams.
 
-* **License:** Apache-2.0 — fork, use, adapt with attribution.
-* Not affiliated with or endorsed by Roman, DESI, or SPHEREx teams.
-* SHA-256 is for transparency/reproducibility—not a claim about physical microphysics.
-* All code, predictions, and results are open and public.
+SHA-256 is for transparency/reproducibility—not a claim about physical microphysics.
 
----
+All code, predictions, and results are open and public.
 
-## 📚 References
+📚 References
+Riess, A. G., et al. (2024). A precision Hubble constant measurement... Astrophys. J. Lett.
 
-* Riess, A. G., et al. (2024). *A precision Hubble constant measurement...* Astrophys. J. Lett.
-* DESI Collaboration (2025). *The DESI Year 3 BAO Release.* arXiv:2507.12345
-* TRGB Collaboration (2025). *Cross-calibration of TRGB and Cepheids...* arXiv:2506.54321
+DESI Collaboration (2025). The DESI Year 3 BAO Release. arXiv:2507.12345
 
----
+TRGB Collaboration (2025). Cross-calibration of TRGB and Cepheids... arXiv:2506.54321
 
-## 👤 Author & Contact
-
+👤 Author & Contact
 Robert Long
-[Screwball7605@aol.com](mailto:Screwball7605@aol.com)
-[GitHub](https://github.com/Bigrob7605/MMH) • [X/Twitter](https://x.com/LookDeepSonSon)
+robert.long.public@protonmail.com
+GitHub • X/Twitter
 
----
+🏁 The Bottom Line
+“One seed. Three predictions. Zero excuses.
+If any fail, the idea dies—publicly, with receipts.”
 
-## 🏁 The Bottom Line
-
-> “One seed. Three predictions. Zero excuses.
-> If any fail, the idea dies—publicly, with receipts.”
-
-**Welcome to real science.**
+Welcome to real science!.
