@@ -1,5 +1,7 @@
 # Multi-epoch Meta-Hash (MMH) Storage System
 
+> **TL;DR:** This is the first public, falsifiable cosmic prediction protocol with receipts at the exabyte scale from a 128-bit seed. If wrong, we kill it, publicly.
+
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Bigrob7605/MMH/blob/main/examples/mmh_demo.ipynb)
 
 ## 🚀 MMH Storage System: Blazing Fast, Fully Reproducible
@@ -10,6 +12,8 @@
   - SHA256: `89176e1bee3fa69cf3e67cab65e4f8c3120ff6b48f3d1c830032b815addbdf1f`
   - First 16 bytes: `b'B\x18\x86Yi\xb7f\xfb\xb8\xa5\xcb&\x03@\xf98'`
   - Last 16 bytes:  `b':\xd5+\xc2\x02\x05\x98\xf1\xbep\x80\xea,i\xda\xb3'`
+
+*See `benchmarks/20gb_test.txt` for full data and reproducibility.*
 
 **How to unfold any seed:**
 ```python

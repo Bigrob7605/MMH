@@ -46,12 +46,11 @@
   pdftitle  ={Observable Information Field Drift in Cosmic Expansion},
   pdfauthor ={Robert Long},
   pdfsubject={Falsifiable minimal cosmological test, MMH framework},
-  pdfkeywords={Hubble tension, information field, falsifiability, MMH, cosmology}
+  pdfkeywords={Hubble tension, falsifiability, MMH, cosmology}
 }
 
 \title{
-  \bfseries Observable Information Field Drift in Cosmic Expansion\\[4pt]
-  \large A 128-bit Seed, Three Quantized Predictions, and an Explicit Falsification Clause
+  \bfseries A 128-Bit Seed for Three Falsifiable Predictions in Cosmology: A Public, Parameter-Free Null Test
 }
 
 \author{
@@ -71,17 +70,32 @@
 \thispagestyle{empty}
 \maketitle
 
+% REMOVE the old QR code block here (picture/flushright/put/etc.)
+
 \vspace{-1.5em}
 
 \begin{abstract}
-\textbf{Problem:} The Hubble tension remains the most persistent anomaly in precision cosmology, with $>5\sigma$ tension between early and late-Universe measurements. \textbf{Approach:} We propose a minimal, falsifiable extension to $\Lambda$CDM via a 128-bit information-field seed that deterministically predicts three late-Universe observables through the Multi-epoch Meta-Hash (MMH) recursion. \textbf{Test:} These predictions are testable by Roman, DESI, and SPHEREx within 24 months, with explicit falsification criteria. \textbf{Implication:} This framework is a falsifiability exercise, not a model for cosmic microphysics. If any of the three signatures fails, the approach is ruled out—no adjustment or salvage.
+We present a public, parameter-free null test for late-Universe cosmology: a single 128-bit seed deterministically predicts three quantized observables. If any prediction fails at the stated statistical threshold, the hypothesis is falsified and retracted. The three predictions are: (1) a step in the Hubble expansion at $z = 0.0723 \pm 0.0028$ ($\Delta H_0 = 5.73 \pm 0.44$ km/s/Mpc, Roman+DESI, pass if $\geq 5\sigma$); (2) a 3.4\% clustering dip at $r = 153.2 \pm 1.9$ Mpc/h (DESI+Roman, pass if $\geq 2\sigma$); (3) a CIB--$H_0$ cross-correlation at $\ell = 197 \pm 4$ ($2.4\sigma$, SPHEREx$\times$SH0ES, pass if $\geq 1.5\sigma$). This protocol is all-or-nothing: any failed prediction at the threshold retires the idea. All code, data, and results are public and reproducible.
 \end{abstract}
+
+% Kill Date box (after abstract)
+\begin{center}
+\fcolorbox{gray}{gray!10}{\parbox{0.85\linewidth}{\centering
+\textbf{\Large Kill Date: 2026-07-17} \\[0.5em]
+If any test fails to reach its stated $\sigma$ threshold, the seed is retracted and the repo is archived.}}
+\end{center}
 
 \vspace{0.5em}
 \section*{Keywords}
-Hubble tension, information field, falsifiability, cosmic recursion, Roman, SPHEREx, DESI
-
+Hubble tension, falsifiability, MMH, cosmology
 \end{titlepage}
+
+% QR code for GitHub repo (centered, below keywords)
+\begin{center}
+  \vspace{1em}
+  \includegraphics[width=1.5cm]{figs/github_qr.png}\\
+  \footnotesize Scan for full reproducibility kit
+\end{center}
 
 % Reset page counter after title page
 \setcounter{page}{1}
@@ -94,6 +108,8 @@ The Hubble tension remains the most persistent anomaly in precision cosmology. R
 Here we present the most falsifiable solution to date: a single 128-bit seed that predicts three late-Universe observables, with an explicit falsification clause if any fail.
 
 The \textbf{Multi-epoch Meta-Hash (MMH) recursion framework}---detailed in Appendix~A---maps a 128-bit string to three late-time, quantized signatures. This approach is agnostic to the underlying mechanism (see Discussion), focusing instead on explicit, testable predictions. SHA-256 is used for reproducibility, not for physical claims.
+
+Compact digital seeds can, in some toy models, encode symmetry-breaking or information-theoretic structures that propagate into macroscopic observables. This null test asks: could any such mapping exist in the real universe?
 
 \vspace{0.6em}
 \noindent\textbf{Why such a radical bet?}
@@ -112,19 +128,22 @@ If confirmed, the result would motivate a search for deeper informational or dis
 \FloatBarrier
 \begin{table}[htbp]
 \centering
-\begin{tabular}{p{2.8cm} p{3cm} p{3.5cm} p{3.8cm} p{2.1cm}}
+\begin{tabular}{p{3.2cm} p{4.2cm} p{3.5cm} p{3.8cm}}
 \hline
-\textbf{Observable} & \textbf{Predicted Value} & \textbf{Signal} & \textbf{Test/Dataset} & \textbf{Threshold} \\
+\textbf{Observable} & \textbf{Prediction} & \textbf{Test/Dataset} & \textbf{Pass Criteria} \\
 \hline
-Expansion Jump   & $z = 0.0723 \pm 0.0028$         & $\Delta H_0 = 5.73 \pm 0.44$ km s$^{-1}$ Mpc$^{-1}$ & Roman SN Ia + DESI BAO         & Confirmed step   \\
-Clustering Dip   & $r = 153.2 \pm 1.9$ Mpc $h^{-1}$ & $3.4\%$ deficit in $\xi(r)$                         & DESI + Roman (wavelet)         & $\geq 2\sigma$   \\
-CIB-H0 Cross  & $\ell = 197 \pm 4$              & $2.4\sigma$ link                                    & SPHEREx $\times$ SH0ES         & $\geq 1.5\sigma$ \\
+Expansion Jump   & $z = 0.0723 \pm 0.0028$; $\Delta H_0 = 5.73 \pm 0.44$ km/s/Mpc & Roman SN Ia + DESI BAO & $\geq 5\sigma^\dagger$ step at predicted $z$ \\
+Clustering Dip   & $r = 153.2 \pm 1.9$ Mpc/h; 3.4\% deficit & DESI + Roman (wavelet) & $\geq 2\sigma^\dagger$ dip at $r$ \\
+CIB--$H_0$ Cross & $\ell = 197 \pm 4$; $2.4\sigma$ link & SPHEREx $\times$ SH0ES & $\geq 1.5\sigma^\dagger$ correlation \\
 \hline
 \end{tabular}
-\caption{MMH quantized predictions derived from the 128-bit seed.}
+\caption{MMH quantized predictions derived from the 128-bit seed. Each row lists the full prediction, dataset, and statistical threshold for a pass.\\
+\footnotesize $^\dagger$ Significance levels are \textbf{local}, not look-elsewhere adjusted.}
 \label{tab:predictions}
 \end{table}
 \FloatBarrier
+
+\noindent\textit{Uncertainty windows match the forecasted 1$\sigma$ errors for each dataset; the discretization grid is far finer than observational uncertainties.}
 
 % ----------------------------------------------------------------------
 \FloatBarrier
@@ -154,7 +173,7 @@ The choice of SHA-256 and specific parameter windows is motivated by three crite
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.75\linewidth]{figs/phase_flip.png}
-  \caption{Predicted expansion jump at z~0.072 from MMH seed. The curve shows the expected step-like behavior in the Hubble parameter.}
+  \caption{Simulated Hubble parameter $H(z)$ [km/s/Mpc -- $H_0$ [km s$^{-1}$ Mpc$^{-1}$]] vs. redshift $z$. The curve shows the predicted step-like increase at $z = 0.0723$ from the MMH seed, with a $5.73 \pm 0.44$ km/s/Mpc jump. Pass if Roman+DESI confirm a $\geq 5\sigma$ step at this $z$.}
   \label{fig:expansion_jump}
 \end{figure}
 \FloatBarrier
@@ -169,7 +188,7 @@ The choice of SHA-256 and specific parameter windows is motivated by three crite
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.75\linewidth]{figs/153mpc_dip.png}
-  \caption{Predicted clustering dip in the two-point galaxy correlation function at r = 153.2 ± 1.9 Mpc h$^{-1}$, derived from the MMH seed. The curve shows the expected 3.4\% deficit compared to LambdaCDM.}
+  \caption{Simulated two-point galaxy correlation function $\xi(r)$ [unitless -- $\xi(r)$ (unitless)] vs. separation $r$ [Mpc $h^{-1}$]. The curve shows the predicted $3.4\%$ deficit at $r = 153.2 \pm 1.9$ Mpc $h^{-1}$ from the MMH seed. Pass if DESI+Roman confirm a $\geq 2\sigma$ dip at this $r$.}
   \label{fig:clustering_dip}
 \end{figure}
 \FloatBarrier
@@ -184,7 +203,7 @@ The choice of SHA-256 and specific parameter windows is motivated by three crite
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.75\linewidth]{figs/cib_h0_corr.png}
-  \caption{Predicted cross-correlation between CIB fluctuations and local H0 residuals at multipole l = 197 ± 4. This mock signal demonstrates the expected correlation that would be detected by SPHEREx if the prediction is correct. The 2.4-sigma significance threshold provides a clear falsification criterion.}
+  \caption{Simulated cross-correlation between CIB fluctuations and local $H_0$ residuals at multipole $\ell = 197 \pm 4$. The curve shows the predicted $2.4\sigma$ correlation from the MMH seed. Pass if SPHEREx$\times$SH0ES confirm a $\geq 1.5\sigma$ correlation at this $\ell$. [CIB $\times$ $H_0$ correlation (arb. units)]}
   \label{fig:cib_correlation}
 \end{figure}
 \FloatBarrier
@@ -201,18 +220,21 @@ Anyone may verify the predictions and falsify this claim via the public code.
 \FloatBarrier
 \section{MMH Unfold Benchmark: 20GB Stress Test}
 
-To demonstrate the scalability and performance of the MMH protocol, we unfolded a 20\,GB byte array from a single 128-bit seed on consumer hardware:
+To demonstrate the scalability and performance of the MMH protocol, we unfolded a 20\,GB byte array from a single 128-bit seed on consumer hardware. The full benchmark data is shown below for transparency and reproducibility.
 
-\begin{itemize}
-    \item \textbf{System:} Windows 11, 64\,GB RAM, NVIDIA RTX 4070 8GB, WSL2
-    \item \textbf{Time to unfold:} 20.7 seconds
-    \item \textbf{SHA256:} 89176e1bee3fa69cf3e67cab65e4f8c3120ff6b48f3d1c830032b815addbdf1f
-    \item \textbf{First 16 bytes:} \texttt{42 18 86 59 69 b7 66 fb b8 a5 cb 26 03 40 f9 38}
-    \item \textbf{Last 16 bytes:} \texttt{3a d5 2b c2 02 05 98 f1 be 70 80 ea 2c 69 da b3}
-    \item \textbf{MMH version:} [Insert Git hash/tag]
-\end{itemize}
+\begin{verbatim}
+MMH 20GB Unfold Test
+---------------------
+- Size:           20 GB
+- Time:           20.7 seconds
+- SHA256:         89176e1bee3fa69cf3e67cab65e4f8c3120ff6b48f3d1c830032b815addbdf1f
+- First 16 bytes: b'B\x18\x86Yi\xb7f\xfb\xb8\xa5\xcb&\x03@\xf98'
+- Last 16 bytes:  b':\xd5+\xc2\x02\x05\x98\xf1\xbep\x80\xea,i\xda\xb3'
+- System:         Windows 11, 64GB RAM, RTX 4070 8GB, WSL2
+- MMH Version:    [V1.0]
+\end{verbatim}
 
-The unfold operation was fully deterministic, perfectly reproducible, and robust under repeated trials. These results, along with the code and seed, can be reproduced via the project repository and benchmark script (\texttt{benchmarks/20gb\_test.txt}).
+For a step-by-step guide to reproducing this benchmark, see the appendix.
 
 % ----------------------------------------------------------------------
 \FloatBarrier
@@ -262,6 +284,27 @@ DESI Collaboration (2025). The DESI Year 3 BAO Release. \textit{arXiv:2507.12345
 \bibitem{TRGB2025}
 TRGB Collaboration (2025). Cross-calibration of TRGB and Cepheids (2025 update). \textit{arXiv:2506.54321}.
 \end{thebibliography}
+
+% ----------------------------------------------------------------------
+\FloatBarrier
+\section*{How to Reproduce the 20GB Benchmark}
+\begin{lstlisting}[language=bash,caption={Command-line unfold of 20GB from the MMH seed}]
+python -c "from mmh import unfold, fingerprint; \
+seed=bytes.fromhex('7f3a2c9e45af01b6da2d4316a2b0e5d1'); \
+data=unfold(seed, 20*1024*1024*1024); \
+print('SHA256:', fingerprint(data)); \
+print('First 16 bytes:', data[:16]); \
+print('Last 16 bytes:', data[-16:])"
+\end{lstlisting}
+
+\begin{lstlisting}[language=python,caption={Python script to unfold and verify 20GB from the MMH seed}]
+from mmh import unfold, fingerprint
+seed = bytes.fromhex('7f3a2c9e45af01b6da2d4316a2b0e5d1')
+data = unfold(seed, 20*1024*1024*1024)
+print('SHA256:', fingerprint(data))
+print('First 16 bytes:', data[:16])
+print('Last 16 bytes:', data[-16:])
+\end{lstlisting}
 
 % ----------------------------------------------------------------------
 \vfill
